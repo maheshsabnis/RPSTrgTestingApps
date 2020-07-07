@@ -1,1 +1,13 @@
-﻿
+﻿MSTest.TestFramework
+- The Testing Suite with Object Model
+	- TestClass
+	- TestMethod
+	- Assertion
+		- CollectionAssertion
+- MSTest.TestAdapter
+	- The UI for Test Management
+		- Run Single Test
+		- RUn All Tests
+		- Debug Test
+		- Intelli Test
+		- Test Status with Stack Trace

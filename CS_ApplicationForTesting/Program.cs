@@ -8,9 +8,15 @@ namespace CS_ApplicationForTesting
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
-            Console.WriteLine("Hello Word");
+            Console.WriteLine("Hello World");
+        }
+
+        public static bool CheckValue(int x)
+        {
+            if (x < 0) return false;
+            return true;
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.Win32;
 
 namespace CS_TestingApplication
 {
@@ -7,8 +9,50 @@ namespace CS_TestingApplication
     public class ProgramClassTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void MainTestMethod()
         {
+            // Arrange
+            // Collect the Input Data / Infrastructure object / Dependencies 
+            // required to execute the test
+            // 1. Hard-Coded values
+            // 2. Instance of class of which method to be unit tested
+            // 3. MOQ Object creation aka Fake Object
+            const string Expected = "Hello World";
+
+            // Act
+            // Actual perform the method call that is to be tested
+            // pass parameters / Managed Exceptions / Handle Events
+            string Actual = "";
+            using (var sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+                CS_ApplicationForTesting.Program.Main();
+                Actual = sw.ToString().Trim();
+            }
+
+            // Assert
+            Assert.AreEqual(Expected, Actual);
+        }
+
+        [TestMethod]
+        public void CheckValueFalseTest()
+        {
+            // arrange
+            int x = -9;
+            var actual = CS_ApplicationForTesting.Program.CheckValue(x);
+
+            Assert.IsFalse(actual);
+        }
+
+        [TestMethod]
+        public void CheckValueTrueTest()
+        {
+            // arrange
+            int x = 19;
+            var actual = CS_ApplicationForTesting.Program.CheckValue(x);
+
+            Assert.IsTrue(actual);
         }
     }
+  
 }
