@@ -18,5 +18,21 @@ namespace CS_ApplicationForTesting
             if (x < 0) return false;
             return true;
         }
+
+        public static Test AddTest()
+        {
+            Test t1 = new Test() 
+            {
+               Id =101, Name="Data Test"
+            };
+            return t1;
+        }
+    }
+
+
+    public class Test
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
