@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Security.Cryptography;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Win32;
 
@@ -52,6 +53,28 @@ namespace CS_TestingApplication
             var actual = CS_ApplicationForTesting.Program.CheckValue(x);
 
             Assert.IsTrue(actual);
+        }
+
+        [TestMethod]
+        public void LoginStatusTest()
+        {
+            string uname = "A1";
+            string pwd = "P1";
+
+            var res = CS_ApplicationForTesting.Program.Login(uname,pwd);
+            Assert.IsTrue(res);
+
+        }
+
+        [DataTestMethod]
+        [DataRow("A1", "P1")] // Pre Test Code
+        [DataRow("A2", "P2")] // Pre Test Code
+        [DataRow("A3", "P2")] // Pre Test Code
+        public void LoginStatusDataDriveTest(string uname, string pwd)
+        {
+            var res = CS_ApplicationForTesting.Program.Login(uname, pwd);
+            Assert.IsTrue(res);
+
         }
     }
   
