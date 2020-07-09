@@ -95,5 +95,9 @@ Write a CategporyNewController Test, that Creates Record and if the record is su
 created, it will redirect to the 'SuccessController' and its Action Method of 
 name 'OperationSuccess'
 
+return RedirectToAction("OperationSuccess", "Success");
+
 Write a test on the CategoryNewController to test if the Edit Action method
 is not returning the NULL value for the Model
+
+Edit(id) --> return View(cat); write test for Cat as Not Null
